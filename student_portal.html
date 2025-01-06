@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #007BFF;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .result h2 {
+            margin-top: 0;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Portal</h1>
+    <form id="studentForm">
+        <label for="name">Student Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label for="id">Student ID:</label>
+        <input type="text" id="id" placeholder="Enter your ID" required>
+
+        <label for="marks">Total Marks (0-100):</label>
+        <input type="number" id="marks" placeholder="Enter your marks" min="0" max="100" required>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+
+    <div class="result" id="result" style="display: none;">
+        <h2>Student Details</h2>
+        <p id="studentDetails"></p>
+    </div>
+
+    <script>
+        function submitForm() {
+            const name = document.getElementById("name").value.trim();
+            const id = document.getElementById("id").value.trim();
+            const marks = Number(document.getElementById("marks").value);
+
+            if (!name || !id || isNaN(marks) || marks < 0 || marks > 100) {
+                alert("Please enter valid details.");
+                return;
+            }
+
+            let grade = "";
+            if (marks >= 80) grade = "A+";
+            else if (marks >= 75) grade = "A";
+            else if (marks >= 70) grade = "A-";
+            else if (marks >= 65) grade = "B+";
+            else if (marks >= 60) grade = "B";
+            else if (marks >= 55) grade = "B-";
+            else if (marks >= 50) grade = "C+";
+            else if (marks >= 45) grade = "C";
+            else if (marks >= 40) grade = "D";
+            else grade = "F";
+
+            // Display results
+            document.getElementById("result").style.display = "block";
+            document.getElementById("studentDetails").innerHTML = `
+                <strong>Name:</strong> ${name}<br>
+                <strong>ID:</strong> ${id}<br>
+                <strong>Marks:</strong> ${marks}<br>
+                <strong>Grade:</strong> ${grade}
+            `;
+
+            // Log details to console
+            console.log("Student Name:", name);
+            console.log("Student ID:", id);
+            console.log("Marks:", marks);
+            console.log("Grade:", grade);
+        }
+    </script>
+</body>
+</html>
