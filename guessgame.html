@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guess Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guess the Number</h1>
+        <input type="number" id="guess" placeholder="Enter your guess" />
+        <button onclick="guessNumber()">Submit</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+    
+        const randomNumber = ((Math.random() * 100) + 1) >> 0;
+
+        function guessNumber() {
+            const userGuess = Number(document.getElementById("guess").value);
+            const messageEl = document.getElementById("message");
+
+            if (userGuess < 1 || userGuess > 100) {
+                messageEl.textContent = "Please enter a number between 1 and 100.";
+                return;
+            }
+
+            if (userGuess === randomNumber) {
+                messageEl.textContent = "🎉 Correct! You guessed the number!";
+            } else if (userGuess < randomNumber) {
+                messageEl.textContent = "🔼 Too low! Try again.";
+            } else {
+                messageEl.textContent = "🔽 Too high! Try again.";
+            }
+        }
+    </script>
+</body>
+</html>
