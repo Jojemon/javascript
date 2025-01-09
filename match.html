@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Match</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>String Match Program</h1>
+    <input type="text" id="userInput" placeholder="Enter your string" />
+    <button onclick="checkString()">Check Match</button>
+    <div id="result"></div>
+
+    <script>
+        const predefinedString = "hello";
+
+        function checkString() {
+            const userInput = document.getElementById("userInput").value;
+            const result = document.getElementById("result");
+
+            if (userInput === predefinedString) {
+                result.textContent = "Matched!";
+            } else {
+                result.textContent = "Not Matched.";
+            }
+        }
+    </script>
+</body>
+</html>
