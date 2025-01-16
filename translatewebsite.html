@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilingual Website</title>
+    <link rel="stylesheet" href="translatewebsite.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 id="title">Welcome to Our Website</h1>
+            <select id="languageSelect" onchange="translatePage()">
+                <option value="en">English</option>
+                <option value="bn">Bangla</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2 id="aboutTitle">About Us</h2>
+            <p id="aboutText">
+                This website demonstrates how to implement a multilingual feature using JavaScript.
+            </p>
+        </section>
+
+        <section>
+            <h2 id="servicesTitle">Our Services</h2>
+            <p id="servicesText">
+                We provide web development, mobile app development, and software solutions.
+            </p>
+        </section>
+
+        <section>
+            <h2 id="contactTitle">Contact Us</h2>
+            <p id="contactText">
+                Email us at info@example.com or call us at +123 456 7890.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p id="footerText">&copy; 2025 Multilingual Website. All rights reserved.</p>
+    </footer>
+
+    <script src="translatewebsite.js"></script>
+</body>
+</html>
